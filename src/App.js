@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { TransactionProvider } from './context/TransactionState'
+
 import Layout from './components/Layout'
 import Balance from './components/Balance'
 import IncomeExpenses from './components/IncomeExpenses'
@@ -11,11 +13,14 @@ import './App.scss';
 const App = () => {
   return (
     <Layout>
-      <Balance />
-      <IncomeExpenses />
-      <TransactionList />
-      <AddTransaction />
+      <TransactionProvider>
+        <Balance />
+        <IncomeExpenses />
+        <TransactionList />
+        <AddTransaction />
+      </TransactionProvider>
     </Layout>
+
   );
 }
 
